@@ -114,12 +114,17 @@
 
   const add = () => {
       let word = document.getElementById("word-search")
-      let span = createBadge(word.value)
 
-      document.getElementById("words-search").appendChild(span)
-      word.value = ""
-      validLimit()
-      run()
+      if(word.value) {
+
+          let span = createBadge(word.value)
+
+          document.getElementById("words-search").appendChild(span)
+          word.value = ""
+          validLimit()
+          run()
+      }
+
   }
 
   const createBadge = (text) => {
