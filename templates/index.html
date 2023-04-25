@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang=”pt-br”>
+<head>
+    <meta charset=”UTF-8”>
+    <title>Tio Lu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/bootstrap.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        #pai{
+            width: 800px;
+            height: 450px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-sm mt-5">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <input type="text" id="word-search" class="form-control mx-2" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <button class="btn btn-outline-secondary" type="button" id="btn-add" onclick="add()">Add</button>
+{#                <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="run()">Run</button>#}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div id="words-search">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+  const ctx = document.getElementById('myChart');
+  let chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: []
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const getLabels = () => {
+      let childrens = document.getElementById("words-search").children
+
+      let labels = []
+
+      for (let item of childrens) {
+          labels.push(item.innerText);
+      }
+
+      return labels
+
+  }
+
+  const run = () => {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify(getLabels());
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("http://localhost:5000/process", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+              let response = JSON.parse(result)
+              chart.data.labels = response.labels
+              chart.data.datasets = response.dataset
+              chart.update()
+          })
+          .catch(error => console.log('error', error));
+
+  }
+
+  const validLimit = () => {
+    if(document.getElementById("words-search").childElementCount >= 4) {
+        document.getElementById("word-search").disabled = true
+        document.getElementById("btn-add").disabled = true
+    }else{
+        document.getElementById("word-search").disabled = false
+        document.getElementById("btn-add").disabled = false
+    }
+  }
+
+  const removeBadge = (event) => {
+      event.target.closest('.badge').remove()
+      validLimit()
+      run()
+  }
+
+  const add = () => {
+      let word = document.getElementById("word-search")
+      let span = createBadge(word.value)
+
+      document.getElementById("words-search").appendChild(span)
+      word.value = ""
+      validLimit()
+      run()
+  }
+
+  const createBadge = (text) => {
+
+      let span = document.createElement("span")
+      span.classList.add('badge');
+      span.classList.add('badge-dark');
+      span.classList.add('mx-1');
+
+      let iconClose = document.createElement('i')
+      iconClose.classList.add('bi')
+      iconClose.classList.add('bi-x-circle-fill')
+
+      let linkClose = document.createElement('a')
+      linkClose.appendChild(iconClose)
+      linkClose.classList.add('mx-1');
+      linkClose.onclick = removeBadge
+
+      span.innerHTML = text
+      span.appendChild(linkClose)
+
+      return span
+  }
+
+</script>
+
+</html>
