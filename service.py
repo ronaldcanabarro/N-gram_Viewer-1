@@ -15,8 +15,8 @@ nltk.download('wordnet')
 
 import spacy
 
-# nlp = spacy.load('pt_core_news_lg')
-nlp = spacy.load(os.path.join(os.path.dirname(__file__), 'data/pt_core_news_lg-3.5.0/pt_core_news_lg/pt_core_news_lg-3.5.0'))
+nlp = spacy.load('pt_core_news_lg')
+# nlp = spacy.load(os.path.join(os.path.dirname(__file__), 'data/pt_core_news_lg-3.5.0/pt_core_news_lg/pt_core_news_lg-3.5.0'))
 
 import json
 

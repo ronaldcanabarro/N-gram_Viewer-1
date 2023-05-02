@@ -42,3 +42,4 @@ urllib3==1.26.15
 wasabi==1.1.1
 Werkzeug==2.2.3
 yarg==0.1.9
+https://github.com/explosion/spacy-models/releases/download/pt_core_news_lg-3.5.0/pt_core_news_lg-3.5.0.tar.gz
