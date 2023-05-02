@@ -2,3 +2,5 @@
 __pycache__/
 /node_modules/
 .vercel
+/data/pt_core_news_lg-3.5.0/
+/venv/
