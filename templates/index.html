@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-<div class="container-sm mt-5">
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
@@ -39,8 +39,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-9">
             <canvas id="myChart"></canvas>
+        </div>
+        <div class="col">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-dark">Referências</li>
+            </ul>
+            <ul class="list-group list-group-flush" id="referencias" style="max-height: 700px; overflow: hidden; overflow-y: hidden; overflow-y: scroll">
+            </ul>
         </div>
     </div>
     <div class="row m-5">
@@ -136,6 +143,8 @@
               chart.data.labels = response.labels
               chart.data.datasets = response.dataset
               chart.update()
+              addreferencias(response.referencias)
+
           })
           .catch(error => console.log('error', error));
 
@@ -192,6 +201,21 @@
         span.appendChild(linkClose)
 
         return span
+    }
+
+    const addreferencias = (lista) => {
+
+        let ul_referencias = document.getElementById("referencias")
+        ul_referencias.replaceChildren()
+
+        lista.forEach( (r) =>   {
+            let li = document.createElement("li")
+            li.classList.add('list-group-item')
+            li.innerHTML = r
+            ul_referencias.appendChild(li)
+        })
+
+
     }
 
     let input = document.getElementById("word-search");
