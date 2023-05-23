@@ -4,3 +4,4 @@ __pycache__/
 .vercel
 /data/pt_core_news_lg-3.5.0/
 /venv/
+/data/
