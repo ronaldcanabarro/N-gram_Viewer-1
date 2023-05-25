@@ -1,136 +1,31 @@
-# Título do Seu Projeto
+# Documentação Script Construção Data Set
 
-Breve descrição do projeto 🎉✨ (ATUALIZAR)
+O Script do arquivo jupyter notebook Script_construcao foi elaborado, para poder extrair os documentos .txt e restrutura-los para que no final se tenha um data set informando o texto/teses , o ano de publicação e o autor responsável. Para que isso o script se divide em xxxx Etapas, onde
 
-## Requisitos
+### 1º Etapa - Import Bibliotecas
 
-- Python 3.10 (versão específica usada no projeto)
-- Flask (incluído no arquivo requirements.txt)
+Nessa etapa foi importado todas bibliotecas necessarias para realização da tarefe. Entre as principais, estão numpy, pandas, nltk e spacy
 
-## Instalação
+### 2º Etapa - Extração dos arquivos
 
-Aqui estão os passos para configurar o ambiente e executar o projeto em sua máquina:
+Para ocorrer essa etapa é importante que um inicialmente seja realizado o download de todos os arquivos .txt e salva-los com formato .zip. Na sequencia renome o arquivo como Arquivos_DataSet.zip
 
-1. **Python**: Verifique se você possui o Python 3.10 instalado. Caso contrário, siga as instruções de instalação adequadas para o seu sistema operacional:
+### 3º Etapa - Estruturando Conjunto de dados
 
-- **Windows**: 
+Após a leitura dos arquivos foi utilizado a biblioteca pandas para poder estrutura um data set, contendo as seguintes colunas: texto , autor e ano .
 
-  - Acesse [python.org](https://www.python.org/downloads/windows/) e baixe o instalador do Python 3.10.
-  - Execute o arquivo baixado e siga as instruções do instalador. Lembre-se de marcar a opção "Adicionar Python ao PATH" durante o processo de instalação.
+### 4º Etapa -  Identificando Entidades de Localização nos textos
 
-- **Linux** (Debian/Ubuntu):
+Nessa etapa foi utilizado tecnicas de localização de entidades para podemos identificar palavras compostas que representam localização, como por exemplo: São Paulo e Rio de Janeiro. Essa forma essas palavras foram identificadas e não foram aplicadas técnicas de tokenização e lematização.
 
-  - Abra o terminal e execute os seguintes comandos:
+### 5º Lematização das palavras
 
-  ```bash
-  sudo apt update
-  sudo apt install python3.10
-  ```
+Apos a identificação de entidades, foi aplicado processo de lematização nas palavras, com exceção palavras que foram identificadas na etapa anterior 
 
-- **macOS** (Homebrew):
+### 6º Remoção de stop word
 
-  - Abra o terminal e execute o seguinte comando:
+Essa etapa foi realizada a remoção de stop word.
 
-  ```bash
-  brew install python@3.10
-  ```
+### 7º Salvar Conjunto de dados
 
-2. **pip**: O pip3 é o gerenciador de pacotes padrão para o Python. Verifique se você tem o pip3 instalado seguindo as instruções abaixo:
-
-- **Windows**: O Python 3.10 já deve ter o pip3 instalado por padrão. Verifique digitando o seguinte comando no Prompt de Comando:
-
-  ```bash
-  pip3 --version
-  ```
-
-- **Linux** (Debian/Ubuntu):
-
-  - Abra o terminal e execute o seguinte comando:
-
-  ```bash
-  sudo apt update
-  sudo apt install python3-pip
-  ```
-
-- **macOS** (Homebrew):
-
-  - Abra o terminal e execute o seguinte comando:
-
-  ```bash
-  brew install pipenv
-  ```
-
-2. **Clonar o repositório**: Faça o clone deste repositório em seu ambiente local usando o seguinte comando:
-
-```bash
-git clone https://github.com/WemyVieira/word-cloud-analytcs
-```
-
-3. **Ambiente virtual (opcional)**: É recomendável criar um ambiente virtual para isolar as dependências do projeto. Entre na pasta do projeto e execute os seguintes comandos:
-
-```bash
-cd word-cloud-analytcs
-python3 -m venv venv
-```
-
-4. **Ativar o ambiente virtual**: Agora, ative o ambiente virtual recém-criado. Dependendo do seu sistema operacional, o comando pode variar:
-
-- No Windows:
-
-```bash
-venv\Scripts\activate.bat
-```
-
-- No Linux/macOS:
-
-```bash
-source venv/bin/activate
-```
-
-5. **Instalar as dependências**: Agora, instale as dependências do projeto utilizando o pip e o arquivo requirements.txt:
-
-```bash
-pip3 install -r requirements.txt
-```
-
-## Executando o Projeto
-
-1. **Executar**: Agora você pode iniciar o projeto. Navegue para o diretório raiz do projeto e execute o seguinte comando:
-
-Use a production WSGI server instead
-
-```bash
-python index.py
-```
-
-2. **Acessar o projeto**: Após executar o comando acima, você poderá acessar o projeto em seu navegador, digitando `http://localhost:5000` na barra de endereços.
-
-## Contribuição
-
-Se você quiser contribuir para este projeto, siga as etapas abaixo:
-
-1. Faça um fork deste repositório e clone-o em seu ambiente local.
-
-2. Crie uma nova branch para suas alterações:
-
-```bash
-git checkout -b minha-nova-feature
-```
-
-3. Faça suas alterações e faça commit delas:
-
-```bash
-git commit -am "Adicionei uma nova feature"
-```
-
-4. Envie suas alterações para o repositório remoto:
-
-```bash
-git push origin minha-nova-feature
-```
-
-5. Envie uma Pull Request para que possamos revisar suas alterações e mesclá-las ao projeto principal.
-
-## Licença
-
-Licença MIT (ATUALIZAR)
+No final desse processo inteiro é salvo o arquivo no nome: DataSet_Desagrupado.gzip , onde esse arquivo vai ser utilizado no front end para criar a visualização.
