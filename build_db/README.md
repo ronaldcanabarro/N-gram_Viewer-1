@@ -1,6 +1,6 @@
 # Título do Seu Projeto
 
-Breve descrição do projeto 🎉✨
+Breve descrição do projeto 🎉✨ (ATUALIZAR)
 
 ## Requisitos
 
@@ -133,4 +133,4 @@ git push origin minha-nova-feature
 
 ## Licença
 
-Licença MIT
+Licença MIT (ATUALIZAR)
