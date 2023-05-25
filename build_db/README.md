@@ -97,6 +97,8 @@ pip3 install -r requirements.txt
 
 1. **Executar**: Agora você pode iniciar o projeto. Navegue para o diretório raiz do projeto e execute o seguinte comando:
 
+Use a production WSGI server instead
+
 ```bash
 python index.py
 ```
