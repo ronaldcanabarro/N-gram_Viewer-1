@@ -28,4 +28,4 @@ Essa etapa foi realizada a remoção de stop word.
 
 ### 7º Salvar Conjunto de dados
 
-No final desse processo inteiro é salvo o arquivo no nome: DataSet_Desagrupado.gzip , onde esse arquivo vai ser utilizado no front end para criar a visualização.
+No final desse processo inteiro é salvo o arquivo no nome: DataSet_.gzip , onde esse arquivo vai ser utilizado no front end para criar a visualização.
