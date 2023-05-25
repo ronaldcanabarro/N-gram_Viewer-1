@@ -2,6 +2,16 @@
 
 Breve descrição do projeto 🎉✨ (ATUALIZAR)
 
+[Documentação de construção do dataset](./build_db/README.md)
+
+## Estrutura do projeto
+  ```bash
+    ├── ./ # base do projeto contendo os arquivos de implementação do python
+        └── build_db # possui o script de processamento de construção do dataset
+        └── data # devemos colocar o dataeset gerado nessa pasta com o seguinte nome DataSet_.gzip
+        └── static # são os arquivos estáticos para uso no front
+        └── templates # possui o html onde mostramos os gráficos
+  ```
 ## Requisitos
 
 - Python 3.10 (versão específica usada no projeto)
