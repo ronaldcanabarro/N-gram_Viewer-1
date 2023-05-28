@@ -73,7 +73,7 @@ Aqui estão os passos para configurar o ambiente e executar o projeto em sua má
 2. **Clonar o repositório**: Faça o clone deste repositório em seu ambiente local usando o seguinte comando:
 
 ```bash
-git clone https://github.com/WemyVieira/word-cloud-analytcs
+git clone https://github.com/LucianoPedroso/N-gram_Viewer.git
 ```
 
 3. **Ambiente virtual (opcional)**: É recomendável criar um ambiente virtual para isolar as dependências do projeto. Entre na pasta do projeto e execute os seguintes comandos:
