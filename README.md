@@ -79,7 +79,7 @@ git clone https://github.com/LucianoPedroso/N-gram_Viewer.git
 3. **Ambiente virtual (opcional)**: É recomendável criar um ambiente virtual para isolar as dependências do projeto. Entre na pasta do projeto e execute os seguintes comandos:
 
 ```bash
-cd word-cloud-analytcs
+cd N-gram_Viewer
 python3 -m venv venv
 ```
 
