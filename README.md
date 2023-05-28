@@ -1,6 +1,6 @@
 # N-Gram Viewer - bancos de dados em .txt
 
-Breve descrição do projeto 🎉✨ (ATUALIZAR)
+O projeto é parte de uma tese de doutorado em História, Pólítica e Bens Culturais, pela FGV-RJ. Inspirado no N-Gram Viewer do Google, construímos um visualizador de N-Gram que permite utilizar-se de um banco de dados em formato .txt, para construir gráficos de frequência ao longo de uma linha do tempo. O bando de dados que usamos como treinamento é composto por 211 teses e dissertações defendidas na Pós-Graduação em História, no Brasil, entre 1994-2022 e que versam sobre as dissidências sexuais e desobedidesobediências de gênero.
 
 [Documentação de construção do dataset](./build_db/README.md)
 
